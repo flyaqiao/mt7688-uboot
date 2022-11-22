@@ -1,0 +1,7 @@
+
+tools/
+*.o
+.menuconfig.log
+.tmp_config
+.config.old
+autoconf.h
