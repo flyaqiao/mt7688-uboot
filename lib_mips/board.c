@@ -1955,6 +1955,7 @@ void board_init_r (gd_t *id, ulong dest_addr)
 /*web failsafe*/
 	gpio_init();
 	printf( "\nif you press the WPS button for more than 2 seconds will automatically enter the Update mode,more than 7 seconds enter gpio test mode\n");
+#if 0
 	int counter = 0;
 	for(i=0;i<10;i++){
 		led_on();
@@ -1980,6 +1981,17 @@ void board_init_r (gd_t *id, ulong dest_addr)
 	} else {
 		printf( "\n\nContinuing normal boot...\n\n");
 	}
+#else
+  if(detect_wps()) {
+    udelay(100000);
+    if(detect_wps()) {
+      printf( "\n\nHTTP server is starting for update...\n\n");
+      eth_initialize(gd->bd);
+      NetLoopHttpd();
+    }
+  }
+#endif
+#if 0
 /*failsafe end!*/
 	OperationSelect();   
 	while (timer1 > 0) {
@@ -1999,6 +2011,9 @@ void board_init_r (gd_t *id, ulong dest_addr)
 		printf ("\b\b\b%2d ", timer1);
 	}
 	putc ('\n');
+#else
+	BootType = '3';
+#endif
 	if(BootType == '3') {
 		char *argv[2];
 		sprintf(addr_str, "0x%X", CFG_KERN_ADDR);

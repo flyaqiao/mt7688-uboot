@@ -85,6 +85,7 @@
 #define SPIC_4B_ADDR (1<<3)
 
 
+static inline int raspi_write_enable(void);
 static int raspi_wait_ready(int sleep_ms);
 #if defined USER_MODE || defined COMMAND_MODE
 static unsigned int spi_wait_nsec = 0;

@@ -4,4 +4,14 @@ tools/
 .menuconfig.log
 .tmp_config
 .config.old
+.depend
+*.map
+*.a
+*.swp
+*.bin
+*.srec
+*.bz2
+u-boot
 autoconf.h
+httpd/fsdata.c
+scripts/lxdialog/lxdialog
