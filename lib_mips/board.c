@@ -536,7 +536,7 @@ static int init_func_ram (void)
 static int display_banner(void)
 {
    
-	printf ("\n\nWooya by wuya,V1.0.6\n\n");
+	printf ("\n\nKiteDTU by Kitesoft.cn,V1.0.0\n\n");
 	return (0);
 }
 
